@@ -40,9 +40,8 @@ function preload() {
 }
 
 function setup() {
-  // put setup code here
   createCanvas(windowWidth, windowHeight);
-  //  textAlign(CENTER);
+
   myMap = mappa.tileMap(options);
   myMap.overlay(canvas);
   myMap.onChange(drawPos);
@@ -51,9 +50,6 @@ function setup() {
 }
 
 function draw() {
-  //  clear();
-  //mousepressed
-
   if (state == 1) {
     writeDistance();
     var ref = min(height, width);
@@ -65,10 +61,7 @@ function draw() {
     textAlign(CENTER);
     text(info, ref / 10 + ref / 8, 4 * height / 5 + height / 25 + height / 37);
   }
-
   drawButtons();
-
-
 }
 
 function setupButtons() {
@@ -85,7 +78,6 @@ function setupButtons() {
 }
 
 function drawButtons() {
-
   fill(0, 0, 0, 180);
   var ref = min(height, width);
   var rectH = dist(ref / 10, height / 5, ref / 10, 4 * height / 5);
@@ -96,7 +88,7 @@ function drawButtons() {
   textSize(ref / 60);
   textAlign(CENTER);
   for (var i = 0; i < allButtons.length; i++) {
-    if(myWonder - 1 == i){
+    if (myWonder - 1 == i) {
       fill(51, 153, 255);
     } else {
       fill(255);
@@ -135,7 +127,6 @@ function drawBothPos() {
   fill(51, 153, 255);
   ellipse(myPos.x, myPos.y, 20);
   ellipse(wonPos.x, wonPos.y, 20);
-
 }
 
 function writeDistance() {
@@ -143,8 +134,7 @@ function writeDistance() {
   var km = calcGeoDistance(myLoc.latitude, myLoc.longitude, data.wonders[myWonder - 1].coordLat, data.wonders[myWonder - 1].coordLon, "km");
   var time = floor(km * 0.0104); // basato su 96 km al giorno
   var days = time + '\ndays on foot';
-  // var days =  '\n days on foot';
-  //attributi del testo
+
   push();
   fill(0);
   stroke(255);
@@ -161,38 +151,36 @@ function drawInfo() {
   fill(0);
   var ref = min(height, width);
   var rectH = dist(ref / 10, height / 5, ref / 10, 4 * height / 5);
-  rect(4 * ref / 10, height / 5, 2 * ref / 4, rectH / 2);
+  rect(4 * ref / 10, height / 5, ref / 2, 3 * rectH / 5);
 
   var offset = height / 20;
   fill(255);
   textAlign(LEFT);
-  textSize(ref / 40);
+  textSize(ref / 45);
   var name = data.wonders[myWonder - 1].name;
-  text(name, 4.5 * ref / 10, height / 4, ref / 3, height / 20);
+  text(name, 4.5 * ref / 10, height / 4, 2 * ref / 5, height / 20);
 
   textSize(ref / 60);
   var dateConstr = 'Date of construction: ' + data.wonders[myWonder - 1].dateConstr;
-  text(dateConstr, 4.5 * ref / 10, height / 4 + offset, ref / 3, height / 20);
+  text(dateConstr, 4.5 * ref / 10, height / 4 + offset, 2 * ref / 5, height / 20);
 
   var builders = 'Builders: ' + data.wonders[myWonder - 1].builders;
-  text(builders, 4.5 * ref / 10, height / 4 + offset * 2, ref / 3, height / 20);
+  text(builders, 4.5 * ref / 10, height / 4 + offset * 2, 2 * ref / 5, height / 20);
 
   var dateDestr = 'Date of destruction: ' + data.wonders[myWonder - 1].dateDestr;
-  text(dateDestr, 4.5 * ref / 10, height / 4 + offset * 3, ref / 3, height / 20);
+  text(dateDestr, 4.5 * ref / 10, height / 4 + offset * 3, 2 * ref / 5, height / 20);
 
   var cause = 'Cause of destruction: ' + data.wonders[myWonder - 1].cause;
-  text(cause, 4.5 * ref / 10, height / 4 + offset * 4, ref / 3, height / 20);
+  text(cause, 4.5 * ref / 10, height / 4 + offset * 4, 2 * ref / 5, height / 20);
 
   var modernLoc = 'Modern location: ' + data.wonders[myWonder - 1].modernLoc;
-  text(modernLoc, 4.5 * ref / 10, height / 4 + offset * 5, ref / 3, height / 20);
+  text(modernLoc, 4.5 * ref / 10, height / 4 + offset * 5, 2 * ref / 5, height / 20);
 
 }
 
 function mousePressed() {
   var ref = min(height, width);
   for (var i = 0; i < allButtons.length; i++) {
-    // console.log(data.wonders.length);
-    // console.log('hey');
     allButtons[i].clicked();
   }
   if (mouseX > ref / 10 && mouseX < (ref / 10 + ref / 4) && mouseY > 4 * height / 5 + height / 25 && mouseY < 4 * height / 5 + height / 25 + height / 25) {
