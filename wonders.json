@@ -1,0 +1,75 @@
+{
+  "number": 7,
+  "wonders":[
+          {
+            "name":"The Great Pyramid of Giza",
+            "dateConstr":"2584–2561 BC",
+            "builders":"Egyptians",
+            "dateDestr":"Still in existence",
+            "cause":"Still in existence",
+            "modernLoc":"Giza Necropolis, Egypt",
+            "coordLat":"29.979175",
+            "coordLon":"31.134358"
+          },
+          {
+            "name":"The Hanging Gardens of Babylon",
+            "dateConstr":"600 BC",
+            "builders":"Assyrians",
+            "dateDestr":"After 1st century AD",
+            "cause":"Unknown",
+            "modernLoc":"Nineveh, Iraq",
+            "coordLat":"32.5355",
+            "coordLon":"44.4275"
+          },
+          {
+            "name":"The Temple of Artemis of Ephesus",
+            "dateConstr":"550 BC, 323 BC",
+            "builders":"Lydians",
+            "dateDestr":"356 BC, AD 262",
+            "cause":"Arson, plundering",
+            "modernLoc":"Selçuk, Turkey",
+            "coordLat":"37.949722",
+            "coordLon":"27.363889"
+          },
+          {
+            "name":"The Statue of Zeus at Olympia",
+            "dateConstr":"435 BC",
+            "builders":"Greeks",
+            "dateDestr":"5th–6th centuries AD",
+            "cause":"Destroyed by fire",
+            "modernLoc":"Olympia, Greece",
+            "coordLat":"37.637861",
+            "coordLon":"21.63"
+          },
+          {
+            "name":"The Mausoleum at Halicarnassus",
+            "dateConstr":"351 BC",
+            "builders":"Greeks, Persians",
+            "dateDestr":"12th–15th century AD",
+            "cause":"Earthquakes",
+            "modernLoc":"Bodrum, Turkey",
+            "coordLat":"37.0379",
+            "coordLon":"27.4241"
+          },
+          {
+            "name":"The Colossus of Rhodes",
+            "dateConstr":"292–280 BC",
+            "builders":"Greeks",
+            "dateDestr":"226 BC",
+            "cause":"Rhodes earthquake",
+            "modernLoc":"Rhodes, Greece",
+            "coordLat":"36.451111",
+            "coordLon":"28.227778"
+          },
+          {
+            "name":"The Lighthouse of Alexandria",
+            "dateConstr":"280 BC",
+            "builders":"Greeks",
+            "dateDestr":"AD 1303",
+            "cause":"Crete earthquake",
+            "modernLoc":"Alexandria, Egypt",
+            "coordLat":"31.213889",
+            "coordLon":"29.885556"
+          }
+]
+}
