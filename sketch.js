@@ -58,12 +58,12 @@ function draw() {
     writeDistance();
     var ref = min(height, width);
     fill(0);
-    rect(ref/10, 4*height/5 + height/25, ref/4, height/25);
+    rect(ref / 10, 4 * height / 5 + height / 25, ref / 4, height / 25);
     var info = 'info';
     fill(255);
     textSize(ref / 30);
     textAlign(CENTER);
-    text(info, ref / 10 + ref/8,  4*height/5 + height/25 + height/37);
+    text(info, ref / 10 + ref / 8, 4 * height / 5 + height / 25 + height / 37);
   }
 
   drawButtons();
@@ -76,7 +76,7 @@ function setupButtons() {
   for (var i = 0; i < data.wonders.length; i++) {
     var name = data.wonders[i].name;
     var boxx = ref / 6;
-    var boxy = ref / 5;
+    var boxy = ref / 10;
     var posx = ref / 10 - (ref / 10 - boxx) / 2;
     var posy = map(i, 0, 6, height / 4, 3 * height / 4);
     var button = new WonderButton(posx, posy, boxx, boxy, name, i);
@@ -85,6 +85,7 @@ function setupButtons() {
 }
 
 function drawButtons() {
+
   fill(0, 0, 0, 180);
   var ref = min(height, width);
   var rectH = dist(ref / 10, height / 5, ref / 10, 4 * height / 5);
@@ -95,6 +96,11 @@ function drawButtons() {
   textSize(ref / 60);
   textAlign(CENTER);
   for (var i = 0; i < allButtons.length; i++) {
+    if(myWonder - 1 == i){
+      fill(51, 153, 255);
+    } else {
+      fill(255);
+    }
     text(allButtons[i].name, allButtons[i].posx, allButtons[i].posy, allButtons[i].boxx, allButtons[i].boxy);
   }
 }
@@ -143,15 +149,42 @@ function writeDistance() {
   fill(0);
   stroke(255);
   var ref = min(height, width);
-  rect(ref / 10, height/25, ref / 4, 3*height/25);
+  rect(ref / 10, height / 25, ref / 4, 3 * height / 25);
   pop();
 
   textSize(ref / 30);
   fill(255);
-  text(days, ref / 10, height/25 + (height/25/2), ref / 4, 3*height/25);
+  text(days, ref / 10, height / 25 + (height / 25 / 2), ref / 4, 3 * height / 25);
 }
 
-function drawInfo(){
+function drawInfo() {
+  fill(0);
+  var ref = min(height, width);
+  var rectH = dist(ref / 10, height / 5, ref / 10, 4 * height / 5);
+  rect(4 * ref / 10, height / 5, 2 * ref / 4, rectH / 2);
+
+  var offset = height / 20;
+  fill(255);
+  textAlign(LEFT);
+  textSize(ref / 40);
+  var name = data.wonders[myWonder - 1].name;
+  text(name, 4.5 * ref / 10, height / 4, ref / 3, height / 20);
+
+  textSize(ref / 60);
+  var dateConstr = 'Date of construction: ' + data.wonders[myWonder - 1].dateConstr;
+  text(dateConstr, 4.5 * ref / 10, height / 4 + offset, ref / 3, height / 20);
+
+  var builders = 'Builders: ' + data.wonders[myWonder - 1].builders;
+  text(builders, 4.5 * ref / 10, height / 4 + offset * 2, ref / 3, height / 20);
+
+  var dateDestr = 'Date of destruction: ' + data.wonders[myWonder - 1].dateDestr;
+  text(dateDestr, 4.5 * ref / 10, height / 4 + offset * 3, ref / 3, height / 20);
+
+  var cause = 'Cause of destruction: ' + data.wonders[myWonder - 1].cause;
+  text(cause, 4.5 * ref / 10, height / 4 + offset * 4, ref / 3, height / 20);
+
+  var modernLoc = 'Modern location: ' + data.wonders[myWonder - 1].modernLoc;
+  text(modernLoc, 4.5 * ref / 10, height / 4 + offset * 5, ref / 3, height / 20);
 
 }
 
@@ -162,7 +195,7 @@ function mousePressed() {
     // console.log('hey');
     allButtons[i].clicked();
   }
-  if(mouseX > ref/10 && mouseX < (ref/10 + ref/4) && mouseY > 4*height/5 + height/25 && mouseY < 4*height/5 + height/25 + height/25){
+  if (mouseX > ref / 10 && mouseX < (ref / 10 + ref / 4) && mouseY > 4 * height / 5 + height / 25 && mouseY < 4 * height / 5 + height / 25 + height / 25) {
     drawInfo();
   }
 }
